@@ -1,5 +1,4 @@
 const path = require('path')
-const { env } = require('process')
 
 require('dotenv-safe').load({
   path: path.join(__dirname, '../.env'),
