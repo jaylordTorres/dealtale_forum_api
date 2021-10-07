@@ -12,7 +12,7 @@ exports.load = async (req, _, next, id) => {
 }
 
 exports.item = (req, res) => {
-  res.send({ data: req.locals.forum });
+  res.send({ data: req.locals.data });
 };
 
 exports.post = async (req, res, next) => {
