@@ -1,6 +1,6 @@
-const app = require("./config/express");
-const { port, env } = require("./config/constant");
-const db = require("./config/db");
+const app = require("./src/config/express");
+const { port, env } = require("./src/config/constant");
+const db = require("./src/config/db");
 
 async function start() {
   try {
