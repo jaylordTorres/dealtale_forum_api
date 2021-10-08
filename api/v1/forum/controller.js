@@ -1,13 +1,16 @@
 const httpStatus = require("http-status");
+
 const Forum = require("./model");
 
 exports.load = async (req, _, next, id) => {
   try {
-    const data = await Forum.get(id);
+    const data = await Forum.findById(id);
+
     req.locals = { data };
+
     return next();
-  } catch (error) {
-    return next(error);
+  } catch (e) {
+    return next(e);
   }
 };
 
@@ -28,9 +31,9 @@ exports.post = async (req, res, next) => {
   }
 };
 
-exports.patch = async (req, res) => {
+exports.patch = async (req, res, next) => {
   try {
-    const data = Object.assign(req.locals.data);
+    const data = Object.assign(req.locals.data, req.body);
 
     await data.save();
 
@@ -40,7 +43,7 @@ exports.patch = async (req, res) => {
   }
 };
 
-exports.list = async (req, res) => {
+exports.list = async (req, res, next) => {
   try {
     const data = await Forum.find({});
 
