@@ -46,9 +46,19 @@ module.exports = {
 
   list: async (req, res, next) => {
     try {
-      const data = await Forum.find({});
+      const data = await Forum.find({}, undefined, { sort: { createdAt: -1 } });
 
       res.json({ data });
+    } catch (e) {
+      next(e);
+    }
+  },
+
+  remove: async (req, res, next) => {
+    try {
+      await Forum.remove({ _id: req.locals.data._id });
+
+      res.send();
     } catch (e) {
       next(e);
     }

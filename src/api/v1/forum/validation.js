@@ -5,14 +5,14 @@ module.exports = {
   id: validator.params(Joi.object({ id: Joi.string().required() })),
   post: validator.body(
     Joi.object({
-      title: Joi.string().required().min(5),
-      content: Joi.string().required().min(5),
+      title: Joi.string().required().min(1),
+      content: Joi.string().required().min(1),
     })
   ),
   patch: validator.body(
     Joi.object({
-      title: Joi.string().min(5),
-      content: Joi.string().min(5),
+      title: Joi.string().min(1),
+      content: Joi.string().min(1),
     })
   ),
 };

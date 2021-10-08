@@ -31,6 +31,11 @@ router
   //
   // doc here
   //
-  .patch(validator.id, validator.patch, controller.patch);
+  .patch(validator.id, validator.patch, controller.patch)
+
+  //
+  // doc here
+  //
+  .delete(validator.id, controller.remove);
 
 module.exports = router;
