@@ -10,4 +10,5 @@ module.exports = {
   port: process.env.PORT,
   env: process.env.NODE_ENV,
   mongoUri: process.env.MONGO_URI,
+  clientKey: process.env.CLIENT_KEY
 };
