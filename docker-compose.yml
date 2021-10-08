@@ -1,0 +1,18 @@
+version: "3"
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:4.4.6
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - "27018:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=forum_user
+      - MONGO_INITDB_ROOT_PASSWORD=forum_password
+      - MONGO_INITDB_DATABASE=dealtale
+    networks:
+      - forum-network
+networks:
+  forum-network:
+    driver: bridge
