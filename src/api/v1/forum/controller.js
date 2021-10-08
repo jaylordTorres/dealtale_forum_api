@@ -21,7 +21,7 @@ module.exports = {
 
   post: async (req, res, next) => {
     try {
-      const data = new Forum(req.body);
+      const data = new Forum({ ...req.body, sessionId: req.sessionId });
 
       await data.save();
 
