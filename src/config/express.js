@@ -1,17 +1,17 @@
 const cors = require("cors");
 const express = require("express");
 const helmet = require("helmet");
-const methodOverride = require("method-override");
+const override = require("method-override");
 
-const error = require("../middleware/error");
 const apiKey = require("../middleware/api_key");
-const routes = require("../api/v1/index");
+const error = require("../middleware/error");
+const routes = require("../api/v1");
 const app = express();
 
 app.use(apiKey.client);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(methodOverride());
+app.use(override());
 app.use(helmet());
 app.use(cors());
 
