@@ -1,6 +1,17 @@
-const app = require('./config/express');
-const { port, env } = require('./config/constant')
+const app = require("./config/express");
+const { port, env } = require("./config/constant");
+const db = require("./config/db");
 
+async function start() {
+  try {
+    await db.connect();
 
-app.listen(port || 3000, () => console.info(`server started: ${port} - ${env}`))
+    app.listen(port || 3000, () =>
+      console.info(`server started: ${port} - ${env}`)
+    );
+  } catch (e) {
+    throw new Error(e.message);
+  }
+}
 
+start();

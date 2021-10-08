@@ -1,12 +1,13 @@
-const path = require('path')
+const path = require("path");
+const dotenv = require("dotenv-safe");
 
-require('dotenv-safe').load({
-  path: path.join(__dirname, '../.env'),
-  sample: path.join(__dirname, '../.env.example'),
-})
+dotenv.config({
+  path: path.join(__dirname, "../.env"),
+  example: path.join(__dirname, "../.env.example"),
+});
 
 module.exports = {
   port: process.env.PORT,
   env: process.env.NODE_ENV,
-  mongo_uri: process.env.MONGO_URI
-}
+  mongoUri: process.env.MONGO_URI,
+};
