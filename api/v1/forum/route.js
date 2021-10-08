@@ -1,14 +1,32 @@
-const express = require('express')
+const express = require("express");
 
-const controller = require('./controller')
-const router = express.Router()
+const controller = require("./controller");
+const router = express.Router();
 
-router.param('id', controller.load)
+router.param("id", controller.load);
 
-router.route('/')
+router
+  .route("/")
+  //
+  // doc here
+  //
   .get(controller.list)
-  .post(controller.post)
 
-router.route('/:id')
+  //
+  // doc here
+  //
+  .post(controller.post);
+
+router
+  .route("/:id")
+  //
+  // doc here
+  //
   .get(controller.item)
-  .patch(controller.patch)
+
+  //
+  // doc here
+  //
+  .patch(controller.patch);
+
+module.exports = router;

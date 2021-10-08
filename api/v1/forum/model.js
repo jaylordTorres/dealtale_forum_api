@@ -18,4 +18,4 @@ const Forum = new mongoose.Schema(
 
 
 
-module.exports = mongoose.model('furom', Forum);
+module.exports = mongoose.model('forum', Forum);
