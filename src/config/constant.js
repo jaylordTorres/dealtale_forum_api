@@ -7,8 +7,8 @@ dotenv.config({
 });
 
 module.exports = {
-  port: process.env.PORT,
+  clientKey: process.env.CLIENT_KEY,
   env: process.env.NODE_ENV,
+  port: process.env.PORT,
   mongoUri: process.env.MONGO_URI,
-  clientKey: process.env.CLIENT_KEY
 };

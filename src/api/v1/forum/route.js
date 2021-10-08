@@ -1,7 +1,10 @@
 const express = require("express");
 
+const session = require("../../../middleware/session");
 const controller = require("./controller");
 const router = express.Router();
+
+router.use(session.required);
 
 router.param("id", controller.load);
 

@@ -1,11 +1,8 @@
 const httpStatus = require("http-status");
+const util = require("../util");
 
 exports.basic = (error, _, res, __) => {
   // TODO: create dif types of error
-  const response = {
-    code: httpStatus.BAD_REQUEST,
-    message: error.message || "bad request",
-  };
 
-  res.status(response.code).json(response);
+  util.response.error(res, httpStatus.BAD_REQUEST, error.message);
 };

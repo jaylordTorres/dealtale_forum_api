@@ -1,16 +1,14 @@
 const httpStatus = require("http-status");
 const constant = require("../config/constant");
+const util = require("../util");
 
+// first protection for unknown access
 exports.client = (req, res, next) => {
-  // first protection for unknown access
-  if (req.headers.client_key && req.headers.client_key === constant.clientKey) {
+  const clientKey = req.headers.app_client_key;
+
+  if (clientKey && clientKey === constant.clientKey) {
     return next();
   }
 
-  const response = {
-    code: httpStatus.BAD_REQUEST,
-    message: "please contact admin",
-  };
-
-  res.status(response.code).json(response);
+  util.response.error(res, httpStatus.BAD_REQUEST, "please contact admin");
 };
